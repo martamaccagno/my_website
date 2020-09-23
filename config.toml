@@ -93,39 +93,46 @@ disqusShortname = ""
     
     [[params.tiles.showcase]]
       title = "Marta"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic01.jpg"
+      subtitle = "London Business School - MFA 2021"
+      image = "IMG_7498.jpg"
       url = "blogs/aliquam"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic02.jpg"
+      title = "Travel lover"
+      subtitle = "Life is a book and those who don't travel read only one page"
+      image = "IMG_6157.jpeg"
       url = "blogs/tempus"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
-      image = "pic03.jpg"
+      #title = ""
+      subtitle = "Life is not meant to be lived in one place"
+      image = "IMG_9615.jpg"
       url = "blogs/magna"
-
+      
     [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
+      #title = "Etiam"
+      subtitle = "Once a year, go someplace you've never been before"
+      image = "IMG_6454.jpg"
       url = "blogs/ipsum"
 
     [[params.tiles.showcase]]
-      title = "Consequat"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
+      title = "Family"
+      subtitle = "My biggest support"
+      image = "DSC02474.jpeg"
       url = "blogs/ipsum"
 
     [[params.tiles.showcase]]
-      title = "Etiam"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic06.jpg"
+      title = "Ski lover"
+      subtitle = "Free and happy"
+      image = "IMG_0383.jpg"
       url = "blogs/ipsum"
+    
+    [[params.tiles.showcase]]
+      title = "Happy"
+      subtitle = "A smile is the best makeup a girl could wear"
+      image = "Paris.jpg"
+      url = "blogs/ipsum"
+    
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
@@ -138,12 +145,8 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
+    title = "Your life is in your hands"
+    subtitle = "Be happy with what you have. Be excited about what you want."
     buttonText = "Get Started"
     url = "blogs"
 
