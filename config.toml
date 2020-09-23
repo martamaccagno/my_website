@@ -185,9 +185,9 @@ disqusShortname = ""
     #country = "Country"
 
   # Footer section
-  #[params.footer]
-   # enable = true
-    #copyright = "Company Name"
+  [params.footer]
+    enable = true
+    copyright = "Marta Maccagno"
 
     # Uses font awesome icons
    # [[params.footer.social]]
