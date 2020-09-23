@@ -95,43 +95,43 @@ disqusShortname = ""
       title = "Marta"
       subtitle = "London Business School - MFA 2021"
       image = "IMG_7498.jpg"
-      url = "blogs/aliquam"
+      #url = "blogs/aliquam"
 
     [[params.tiles.showcase]]
       title = "Travel lover"
       subtitle = "Life is a book and those who don't travel read only one page"
       image = "IMG_6157.jpeg"
-      url = "blogs/tempus"
+      #url = "blogs/tempus"
 
     [[params.tiles.showcase]]
       #title = ""
       subtitle = "Life is not meant to be lived in one place"
       image = "IMG_9615.jpg"
-      url = "blogs/magna"
+      #url = "blogs/magna"
       
     [[params.tiles.showcase]]
       #title = "Etiam"
       subtitle = "Once a year, go someplace you've never been before"
       image = "IMG_6454.jpg"
-      url = "blogs/ipsum"
+      #url = "blogs/ipsum"
 
     [[params.tiles.showcase]]
       title = "Family"
       subtitle = "My biggest support"
       image = "DSC02474.jpeg"
-      url = "blogs/ipsum"
+      #url = "blogs/ipsum"
 
     [[params.tiles.showcase]]
       title = "Ski lover"
       subtitle = "Free and happy"
       image = "IMG_0383.jpg"
-      url = "blogs/ipsum"
+      #url = "blogs/ipsum"
     
     [[params.tiles.showcase]]
       title = "Happy"
       subtitle = "A smile is the best makeup a girl could wear"
       image = "Paris.jpg"
-      url = "blogs/ipsum"
+      #url = "blogs/ipsum"
     
     # You can make more showcases by copy and pasting the code above
 
