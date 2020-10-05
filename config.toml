@@ -94,8 +94,8 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Marta"
       subtitle = "London Business School - MFA 2021"
-      image = "IMG_7498.jpg"
-      url = "blogs/aliquam"
+      image = "IMG_7498.JPG"
+      url = "blogs/blog2"
 
     [[params.tiles.showcase]]
       title = "Travel lover"

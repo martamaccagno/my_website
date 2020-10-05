@@ -2,11 +2,11 @@
 categories:
 - ""
 - ""
-date: "2017-10-31T22:26:09-05:00"
-description: Lorem Etiam Nullam
+date: "2020-10-05"
+description: About me
 draft: false
-image: pic09.jpg
+image: "MartaMaccagno_CV_Application.pdf""
 keywords: ""
-slug: magna
-title: Magna
+slug: blog2
+title: About me
 ---
