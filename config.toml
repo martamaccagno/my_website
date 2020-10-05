@@ -95,13 +95,13 @@ disqusShortname = ""
       title = "Marta"
       subtitle = "London Business School - MFA 2021"
       image = "IMG_7498.jpg"
-      #url = "blogs/aliquam"
+      url = "blogs/aliquam"
 
     [[params.tiles.showcase]]
       title = "Travel lover"
       subtitle = "Life is a book and those who don't travel read only one page"
       image = "IMG_6157.jpeg"
-      #url = "blogs/tempus"
+      url = "blogs/blog1"
 
     [[params.tiles.showcase]]
       #title = ""
