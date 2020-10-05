@@ -98,8 +98,8 @@ disqusShortname = ""
       url = "blogs/blog2"
 
     [[params.tiles.showcase]]
-      title = "Travel lover"
-      subtitle = "Life is a book and those who don't travel read only one page"
+      title = "Instagram and Snapchat usage"
+      subtitle = "Population proportion of Snapchat or Instagram users in 2016"
       image = "IMG_6157.jpeg"
       url = "blogs/blog1"
 
