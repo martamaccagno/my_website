@@ -3,7 +3,7 @@ categories:
 - ""
 - ""
 date: "2020-10-05"
-description: "IAbout me"
+description: "About me"
 draft: false
 image: "MartaMaccagno_CV_Application.pdf"
 keywords: ""
