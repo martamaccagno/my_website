@@ -11,6 +11,37 @@ slug: blog1
 title: Instagram and Snapchat usage
 ---
 
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, include=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+```
+
+
 ```{r, read_gss_data, cache=TRUE}
 
 gss <- read_csv(here::here("data", "smallgss2016.csv"), 
@@ -18,14 +49,6 @@ gss <- read_csv(here::here("data", "smallgss2016.csv"),
                        "No answer", "Not applicable"))
 ```
 
-You will also notice that many responses should not be taken into consideration, like "No Answer", "Don't Know", "Not applicable", "Refused to Answer".
-
-We will be creating 95% confidence intervals for population parameters. The variables we have are the following:
-
-- hours and minutes spent on email weekly. The responses to these questions are recorded in the `emailhr` and `emailmin` variables. For example, if the response is 2.50 hours, this would be recorded as emailhr = 2 and emailmin = 30.
-- `snapchat`, `instagrm`, `twitter`: whether respondents used these social media in 2016
-- `sex`: Female - Male
-- `degree`: highest education level attained
 
 ## Instagram and Snapchat, by sex
 
