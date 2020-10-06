@@ -100,31 +100,26 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Instagram and Snapchat usage"
       subtitle = "Population proportion of Snapchat or Instagram users in 2016"
-      image = "IMG_6157.jpeg"
+      image = "INSTA_SNAP.jpg"
       url = "blogs/blog1"
 
     [[params.tiles.showcase]]
-      #title = ""
-     # subtitle = "Life is not meant to be lived in one place"
-      # image = "IMG_9615.jpg"
-      #url = "blogs/magna"
+    title = "Travel lover"
+    subtitle = "Life is not meant to be lived in one place"
+    image = "IMG_9615.jpg"
+      url = "blogs/blog3"
       
-    [[params.tiles.showcase]]
-    #  #title = "Etiam"
-     # subtitle = "Once a year, go someplace you've never been before"
-      # image = "IMG_6454.jpg"
-      #url = "blogs/ipsum"
 
     [[params.tiles.showcase]]
       title = "Family"
       subtitle = "My biggest support"
       image = "DSC02474.jpeg"
-      #url = "blogs/ipsum"
+      url = "blogs/blog4"
 
-    [[params.tiles.showcase]]
-  #    title = "Ski lover"
-   #   subtitle = "Free and happy"
-   #   image = "IMG_0383.jpg"
+    # [[params.tiles.showcase]]
+      #title = "Ski lover"
+      #subtitle = "Free and happy"
+     # image = "IMG_0383.jpg"
       #url = "blogs/ipsum"
     
   #  [[params.tiles.showcase]]
