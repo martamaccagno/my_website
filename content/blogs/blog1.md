@@ -18,20 +18,12 @@ gss <- read_csv(here::here("data", "smallgss2016.csv"),
                        "No answer", "Not applicable"))
 ```
 
-You will also notice that many responses should not be taken into consideration, like "No Answer", "Don't Know", "Not applicable", "Refused to Answer".
-
-We will be creating 95% confidence intervals for population parameters. The variables we have are the following:
-
-- hours and minutes spent on email weekly. The responses to these questions are recorded in the `emailhr` and `emailmin` variables. For example, if the response is 2.50 hours, this would be recorded as emailhr = 2 and emailmin = 30.
-- `snapchat`, `instagrm`, `twitter`: whether respondents used these social media in 2016
-- `sex`: Female - Male
-- `degree`: highest education level attained
 
 ## Instagram and Snapchat, by sex
 
 Can we estimate the *population* proportion of Snapchat or Instagram users in 2016?
 
-1. Create a  new variable, `snap_insta` that is *Yes* if the respondent reported using any of Snapchat (`snapchat`) or Instagram (`instagrm`), and *No* if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.
+1. We create a  new variable, `snap_insta` that is *Yes* if the respondent reported using any of Snapchat (`snapchat`) or Instagram (`instagrm`), and *No* if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.
 
 ```{r, clean_data}
 #addition of new column that shows who uses either or both platforms, none, or didnt proivde data (Yes, No, NA)
@@ -41,7 +33,7 @@ gss <- gss %>%
 gss
 ```
 
-1. Calculate the proportion of Yes’s for `snap_insta` among those who answered the question, i.e. excluding NAs.
+2. We calculate the proportion of Yes’s for `snap_insta` among those who answered the question, i.e. excluding NAs.
 
 ```{r, prop_yes}
 # this variable counts all people who sumbitted an answer 
@@ -54,7 +46,7 @@ prop_yes_gss <-  gss %>%
 prop_yes_gss
 ```
 
-1. Using the CI formula for proportions, please construct 95% CIs for men and women who used either Snapchat or Instagram
+3. Using the CI formula for proportions, we construct 95% CIs for men and women who used either Snapchat or Instagram
 
 ```{r, snap_insta}
 

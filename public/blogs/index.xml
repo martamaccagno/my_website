@@ -13,7 +13,7 @@
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/blogs/blog2/</guid>
-      <description>I come from a very small village in the North of Italy.</description>
+      <description>Smiling, motivated and determined: these are probably the best three words used to describe me. I am a very happy and positive person, always willing to help and I love spending time with other people. I am currently enrolled in the MSc in Financial Analysis at London Business School and I completed a BSc at Bocconi University with a grade of 110 cum Laude. I believe this shows how determination and passion are the characteristics that lead me where I stand today.</description>
     </item>
     
     <item>
@@ -22,9 +22,8 @@
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/blogs/blog1/</guid>
-      <description>gss &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;smallgss2016.csv&amp;quot;), na = c(&amp;quot;&amp;quot;, &amp;quot;Don&#39;t know&amp;quot;, &amp;quot;No answer&amp;quot;, &amp;quot;Not applicable&amp;quot;)) You will also notice that many responses should not be taken into consideration, like &amp;ldquo;No Answer&amp;rdquo;, &amp;ldquo;Don&amp;rsquo;t Know&amp;rdquo;, &amp;ldquo;Not applicable&amp;rdquo;, &amp;ldquo;Refused to Answer&amp;rdquo;.
-We will be creating 95% confidence intervals for population parameters. The variables we have are the following:
- hours and minutes spent on email weekly. The responses to these questions are recorded in the emailhr and emailmin variables.</description>
+      <description>gss &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;smallgss2016.csv&amp;quot;), na = c(&amp;quot;&amp;quot;, &amp;quot;Don&#39;t know&amp;quot;, &amp;quot;No answer&amp;quot;, &amp;quot;Not applicable&amp;quot;)) Instagram and Snapchat, by sex Can we estimate the population proportion of Snapchat or Instagram users in 2016?
+ We create a new variable, snap_insta that is Yes if the respondent reported using any of Snapchat (snapchat) or Instagram (instagrm), and No if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.</description>
     </item>
     
     <item>
@@ -33,7 +32,7 @@ We will be creating 95% confidence intervals for population parameters. The vari
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/blogs/blog4/</guid>
-      <description></description>
+      <description>I am really close to my family and particularly to my brother: we spent three years living together in Milan, we always help each other and we have a great relationship. I am missing him these months, but I know he is missing me more because nobody is cooking, going to supermarket and doing the laundry for him! I look forward to the end of October when they will come to London and I will take them around.</description>
     </item>
     
     <item>
