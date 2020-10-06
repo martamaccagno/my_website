@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Italian, 22 years old, MFA student">
+	<meta name="author" content="Marta Maccagno">
+	<meta name="generator" content="Hugo 0.75.1" />
+	<title>Instagram and Snapchat usage &middot; Portfolio website for Marta Maccagno</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Marta</strong> <span>MFA student</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs">Blogs</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/blogs" class="button special fit">Get Started</a></li>
+            
+            
+                <li><a href="/" class="button fit">Log In</a></li>
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Instagram and Snapchat usage</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/blogs/IMG_7498.jpg" alt="" /></span>
+                            
+                            <pre><code class="language-{r," data-lang="{r,">
+gss &lt;- read_csv(here::here(&quot;data&quot;, &quot;smallgss2016.csv&quot;), 
+                na = c(&quot;&quot;, &quot;Don't know&quot;,
+                       &quot;No answer&quot;, &quot;Not applicable&quot;))
+</code></pre><p>You will also notice that many responses should not be taken into consideration, like &ldquo;No Answer&rdquo;, &ldquo;Don&rsquo;t Know&rdquo;, &ldquo;Not applicable&rdquo;, &ldquo;Refused to Answer&rdquo;.</p>
+<p>We will be creating 95% confidence intervals for population parameters. The variables we have are the following:</p>
+<ul>
+<li>hours and minutes spent on email weekly. The responses to these questions are recorded in the <code>emailhr</code> and <code>emailmin</code> variables. For example, if the response is 2.50 hours, this would be recorded as emailhr = 2 and emailmin = 30.</li>
+<li><code>snapchat</code>, <code>instagrm</code>, <code>twitter</code>: whether respondents used these social media in 2016</li>
+<li><code>sex</code>: Female - Male</li>
+<li><code>degree</code>: highest education level attained</li>
+</ul>
+<h2 id="instagram-and-snapchat-by-sex">Instagram and Snapchat, by sex</h2>
+<p>Can we estimate the <em>population</em> proportion of Snapchat or Instagram users in 2016?</p>
+<ol>
+<li>Create a  new variable, <code>snap_insta</code> that is <em>Yes</em> if the respondent reported using any of Snapchat (<code>snapchat</code>) or Instagram (<code>instagrm</code>), and <em>No</em> if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.</li>
+</ol>
+<pre><code class="language-{r," data-lang="{r,">#addition of new column that shows who uses either or both platforms, none, or didnt proivde data (Yes, No, NA)
+gss &lt;- gss %&gt;% 
+  mutate(snap_insta= ifelse(snapchat==&quot;Yes&quot; | instagrm ==&quot;Yes&quot;, &quot;Yes&quot;, ifelse(snapchat== &quot;NA&quot; &amp; instagrm== &quot;NA&quot;, &quot;NA&quot;, &quot;No&quot;)))
+
+gss
+</code></pre><ol>
+<li>Calculate the proportion of Yes’s for <code>snap_insta</code> among those who answered the question, i.e. excluding NAs.</li>
+</ol>
+<pre><code class="language-{r," data-lang="{r,"># this variable counts all people who sumbitted an answer 
+sum_users_answer &lt;- sum(gss$snap_insta!= &quot;NA&quot;)
+
+#this calculates the proportion of people using platforms (Yes/(Yes+No))
+prop_yes_gss &lt;-  gss %&gt;% 
+  summarise(prop_yes = (sum(ifelse(snap_insta==&quot;Yes&quot;, 1, 0))/sum_users_answer))
+                        
+prop_yes_gss
+</code></pre><ol>
+<li>Using the CI formula for proportions, please construct 95% CIs for men and women who used either Snapchat or Instagram</li>
+</ol>
+<pre><code class="language-{r," data-lang="{r,">
+#women who use either Snapchat or Instagram
+
+#sum for women who use either Snapchat or Instagram
+sum_women_snap_insta &lt;- sum(gss$snap_insta != &quot;NA&quot; &amp; gss$sex==&quot;Female&quot;) 
+
+#proportion of women using platforms (Yes/(Yes+No))
+prop_yes_gss_women &lt;-  gss %&gt;% 
+  filter (sex==&quot;Female&quot;) %&gt;%
+  summarise(prop_yes = (sum(ifelse(snap_insta==&quot;Yes&quot;, 1, 0))/sum_women_snap_insta))
+                        
+#standard erros and the average for women 
+stan_error_women &lt;- sqrt(prop_yes_gss_women*(1-prop_yes_gss_women)/ (sum_women_snap_insta))
+mean_snap_insta_women &lt;- prop_yes_gss_women 
+
+#CI of 95% for women who use either Snapchat or Instagram
+critical_t_value &lt;- qt(0.975,  sum_women_snap_insta -1)
+lower_CI_women &lt;- mean_snap_insta_women - (critical_t_value*stan_error_women)
+upper_CI_women &lt;- mean_snap_insta_women + (critical_t_value*stan_error_women)
+
+
+#men who use either Snapchat or Instagram
+
+#sum for men who use either Snapchat or Instagram
+sum_men_snap_insta &lt;- sum(gss$snap_insta != &quot;NA&quot; &amp; gss$sex==&quot;Male&quot;) 
+
+#proportion of men using platforms (yes/(yes+no))
+prop_yes_gss_men &lt;-  gss %&gt;% 
+  filter (sex==&quot;Male&quot;) %&gt;%
+  summarise(prop_yes = (sum(ifelse(snap_insta==&quot;Yes&quot;, 1, 0))/sum_men_snap_insta))
+                        
+#standard erros and the average for men 
+stan_error_men &lt;- sqrt(prop_yes_gss_men*(1-prop_yes_gss_men)/ (sum_men_snap_insta))
+mean_snap_insta_men &lt;- prop_yes_gss_men
+
+#CI of 95% for men who use either Snapchat or Instagram
+critical_t_value &lt;- qt(0.975,  sum_men_snap_insta -1)
+lower_CI_men &lt;- mean_snap_insta_men - (critical_t_value*stan_error_men)
+upper_CI_men &lt;- mean_snap_insta_men + (critical_t_value*stan_error_men)
+
+#print CI of 95% for women and men
+paste(&quot;Proportion of women using either Snapchat or Instagram:&quot;, prop_yes_gss_women)
+paste(&quot;CI 95% women:&quot;, &quot;[&quot;, lower_CI_women, &quot;-&quot;, upper_CI_women, &quot;]&quot;)
+paste(&quot;Proportion of men using either Snapchat or Instagram:&quot;, prop_yes_gss_men)
+paste(&quot;CI 95% men:&quot;, &quot;[&quot;, lower_CI_men, &quot;-&quot;, upper_CI_men, &quot;]&quot;)
+</code></pre>
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.github.com/martamaccagno" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/marta-maccagno-4372a3145/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Marta Maccagno</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

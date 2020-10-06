@@ -1,0 +1,110 @@
+---
+categories:
+- ""
+- ""
+date: "2020-10-05"
+description: Instagram and Snapchat usage by sex
+draft: false
+image: "IMG_7498.jpg"
+keywords: ""
+slug: blog1
+title: Instagram and Snapchat usage
+---
+
+
+
+<pre class="r"><code>gss &lt;- read_csv(here::here(&quot;data&quot;, &quot;smallgss2016.csv&quot;), 
+                na = c(&quot;&quot;, &quot;Don&#39;t know&quot;,
+                       &quot;No answer&quot;, &quot;Not applicable&quot;))</code></pre>
+<div id="instagram-and-snapchat-by-sex" class="section level2">
+<h2>Instagram and Snapchat, by sex</h2>
+<p>Can we estimate the <em>population</em> proportion of Snapchat or Instagram users in 2016?</p>
+<ol style="list-style-type: decimal">
+<li>Create a new variable, <code>snap_insta</code> that is <em>Yes</em> if the respondent reported using any of Snapchat (<code>snapchat</code>) or Instagram (<code>instagrm</code>), and <em>No</em> if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.</li>
+</ol>
+<pre class="r"><code>#addition of new column that shows who uses either or both platforms, none, or didnt proivde data (Yes, No, NA)
+gss &lt;- gss %&gt;% 
+  mutate(snap_insta= ifelse(snapchat==&quot;Yes&quot; | instagrm ==&quot;Yes&quot;, &quot;Yes&quot;, ifelse(snapchat== &quot;NA&quot; &amp; instagrm== &quot;NA&quot;, &quot;NA&quot;, &quot;No&quot;)))
+
+gss</code></pre>
+<pre><code>## # A tibble: 2,867 x 8
+##    emailmin emailhr snapchat instagrm twitter sex    degree         snap_insta
+##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;     
+##  1 0        12      NA       NA       NA      Male   Bachelor       NA        
+##  2 30       0       No       No       No      Male   High school    No        
+##  3 NA       NA      No       No       No      Male   Bachelor       No        
+##  4 10       0       NA       NA       NA      Female High school    NA        
+##  5 NA       NA      Yes      Yes      No      Female Graduate       Yes       
+##  6 0        2       No       Yes      No      Female Junior college Yes       
+##  7 0        40      NA       NA       NA      Male   High school    NA        
+##  8 NA       NA      Yes      Yes      No      Female High school    Yes       
+##  9 0        0       NA       NA       NA      Male   High school    NA        
+## 10 NA       NA      No       No       No      Male   Junior college No        
+## # … with 2,857 more rows</code></pre>
+<ol style="list-style-type: decimal">
+<li>Calculate the proportion of Yes’s for <code>snap_insta</code> among those who answered the question, i.e. excluding NAs.</li>
+</ol>
+<pre class="r"><code># this variable counts all people who sumbitted an answer 
+sum_users_answer &lt;- sum(gss$snap_insta!= &quot;NA&quot;)
+
+#this calculates the proportion of people using platforms (Yes/(Yes+No))
+prop_yes_gss &lt;-  gss %&gt;% 
+  summarise(prop_yes = (sum(ifelse(snap_insta==&quot;Yes&quot;, 1, 0))/sum_users_answer))
+                        
+prop_yes_gss</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   prop_yes
+##      &lt;dbl&gt;
+## 1    0.375</code></pre>
+<ol style="list-style-type: decimal">
+<li>Using the CI formula for proportions, please construct 95% CIs for men and women who used either Snapchat or Instagram</li>
+</ol>
+<pre class="r"><code>#women who use either Snapchat or Instagram
+
+#sum for women who use either Snapchat or Instagram
+sum_women_snap_insta &lt;- sum(gss$snap_insta != &quot;NA&quot; &amp; gss$sex==&quot;Female&quot;) 
+
+#proportion of women using platforms (Yes/(Yes+No))
+prop_yes_gss_women &lt;-  gss %&gt;% 
+  filter (sex==&quot;Female&quot;) %&gt;%
+  summarise(prop_yes = (sum(ifelse(snap_insta==&quot;Yes&quot;, 1, 0))/sum_women_snap_insta))
+                        
+#standard erros and the average for women 
+stan_error_women &lt;- sqrt(prop_yes_gss_women*(1-prop_yes_gss_women)/ (sum_women_snap_insta))
+mean_snap_insta_women &lt;- prop_yes_gss_women 
+
+#CI of 95% for women who use either Snapchat or Instagram
+critical_t_value &lt;- qt(0.975,  sum_women_snap_insta -1)
+lower_CI_women &lt;- mean_snap_insta_women - (critical_t_value*stan_error_women)
+upper_CI_women &lt;- mean_snap_insta_women + (critical_t_value*stan_error_women)
+
+
+#men who use either Snapchat or Instagram
+
+#sum for men who use either Snapchat or Instagram
+sum_men_snap_insta &lt;- sum(gss$snap_insta != &quot;NA&quot; &amp; gss$sex==&quot;Male&quot;) 
+
+#proportion of men using platforms (yes/(yes+no))
+prop_yes_gss_men &lt;-  gss %&gt;% 
+  filter (sex==&quot;Male&quot;) %&gt;%
+  summarise(prop_yes = (sum(ifelse(snap_insta==&quot;Yes&quot;, 1, 0))/sum_men_snap_insta))
+                        
+#standard erros and the average for men 
+stan_error_men &lt;- sqrt(prop_yes_gss_men*(1-prop_yes_gss_men)/ (sum_men_snap_insta))
+mean_snap_insta_men &lt;- prop_yes_gss_men
+
+#CI of 95% for men who use either Snapchat or Instagram
+critical_t_value &lt;- qt(0.975,  sum_men_snap_insta -1)
+lower_CI_men &lt;- mean_snap_insta_men - (critical_t_value*stan_error_men)
+upper_CI_men &lt;- mean_snap_insta_men + (critical_t_value*stan_error_men)
+
+#print CI of 95% for women and men
+paste(&quot;Proportion of women using either Snapchat or Instagram:&quot;, prop_yes_gss_women)</code></pre>
+<pre><code>## [1] &quot;Proportion of women using either Snapchat or Instagram: 0.418725617685306&quot;</code></pre>
+<pre class="r"><code>paste(&quot;CI 95% women:&quot;, &quot;[&quot;, lower_CI_women, &quot;-&quot;, upper_CI_women, &quot;]&quot;)</code></pre>
+<pre><code>## [1] &quot;CI 95% women: [ 0.383801515833044 - 0.453649719537567 ]&quot;</code></pre>
+<pre class="r"><code>paste(&quot;Proportion of men using either Snapchat or Instagram:&quot;, prop_yes_gss_men)</code></pre>
+<pre><code>## [1] &quot;Proportion of men using either Snapchat or Instagram: 0.318407960199005&quot;</code></pre>
+<pre class="r"><code>paste(&quot;CI 95% men:&quot;, &quot;[&quot;, lower_CI_men, &quot;-&quot;, upper_CI_men, &quot;]&quot;)</code></pre>
+<pre><code>## [1] &quot;CI 95% men: [ 0.281150119890295 - 0.355665800507715 ]&quot;</code></pre>
+</div>

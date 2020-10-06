@@ -6,7 +6,27 @@
     <description>Recent content on Portfolio website for Marta Maccagno</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Oct 2017 22:42:51 -0500</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 05 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About me</title>
+      <link>/blogs/blog2/</link>
+      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blog2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Instagram and Snapchat usage</title>
+      <link>/blogs/blog1/</link>
+      <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blog1/</guid>
+      <description>gss &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;smallgss2016.csv&amp;quot;), na = c(&amp;quot;&amp;quot;, &amp;quot;Don&#39;t know&amp;quot;, &amp;quot;No answer&amp;quot;, &amp;quot;Not applicable&amp;quot;)) You will also notice that many responses should not be taken into consideration, like &amp;ldquo;No Answer&amp;rdquo;, &amp;ldquo;Don&amp;rsquo;t Know&amp;rdquo;, &amp;ldquo;Not applicable&amp;rdquo;, &amp;ldquo;Refused to Answer&amp;rdquo;.
+We will be creating 95% confidence intervals for population parameters. The variables we have are the following:
+ hours and minutes spent on email weekly. The responses to these questions are recorded in the emailhr and emailmin variables.</description>
+    </item>
+    
     <item>
       <title>Aliquam</title>
       <link>/blogs/aliquam/</link>
@@ -23,24 +43,6 @@
       
       <guid>/blogs/tempus/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>Magna</title>
-      <link>/blogs/magna/</link>
-      <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
-      
-      <guid>/blogs/magna/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ipsum</title>
-      <link>/blogs/ipsum/</link>
-      <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
-      
-      <guid>/blogs/ipsum/</guid>
-      <description>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</description>
     </item>
     
     <item>
