@@ -11,19 +11,12 @@ slug: blog1
 title: Instagram and Snapchat usage
 ---
 
-```{r, read_gss_data, cache=TRUE}
-
-gss <- read_csv(here::here("data", "smallgss2016.csv"), 
-                na = c("", "Don't know",
-                       "No answer", "Not applicable"))
-```
-
-
 ## Instagram and Snapchat, by sex
 
 Can we estimate the *population* proportion of Snapchat or Instagram users in 2016?
 
 1. We create a  new variable, `snap_insta` that is *Yes* if the respondent reported using any of Snapchat (`snapchat`) or Instagram (`instagrm`), and *No* if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.
+
 
 ```{r, clean_data}
 #addition of new column that shows who uses either or both platforms, none, or didnt proivde data (Yes, No, NA)

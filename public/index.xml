@@ -22,8 +22,8 @@
       <pubDate>Mon, 05 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/blogs/blog1/</guid>
-      <description>gss &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;, &amp;quot;smallgss2016.csv&amp;quot;), na = c(&amp;quot;&amp;quot;, &amp;quot;Don&#39;t know&amp;quot;, &amp;quot;No answer&amp;quot;, &amp;quot;Not applicable&amp;quot;)) Instagram and Snapchat, by sex Can we estimate the population proportion of Snapchat or Instagram users in 2016?
- We create a new variable, snap_insta that is Yes if the respondent reported using any of Snapchat (snapchat) or Instagram (instagrm), and No if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.</description>
+      <description>Instagram and Snapchat, by sex Can we estimate the population proportion of Snapchat or Instagram users in 2016?
+ We create a new variable, snap_insta that is Yes if the respondent reported using any of Snapchat (snapchat) or Instagram (instagrm), and No if not. If the recorded value was NA for both of these questions, the value in your new variable should also be NA.  #addition of new column that shows who uses either or both platforms, none, or didnt proivde data (Yes, No, NA) gss &amp;lt;- gss %&amp;gt;% mutate(snap_insta= ifelse(snapchat==&amp;quot;Yes&amp;quot; | instagrm ==&amp;quot;Yes&amp;quot;, &amp;quot;Yes&amp;quot;, ifelse(snapchat== &amp;quot;NA&amp;quot; &amp;amp; instagrm== &amp;quot;NA&amp;quot;, &amp;quot;NA&amp;quot;, &amp;quot;No&amp;quot;))) gss We calculate the proportion of Yes’s for snap_insta among those who answered the question, i.</description>
     </item>
     
     <item>
