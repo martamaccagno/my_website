@@ -25,6 +25,19 @@ gss <- gss %>%
 
 gss
 ```
+   emailmin emailhr snapchat instagrm twitter sex    degree         snap_insta
+   <chr>    <chr>   <chr>    <chr>    <chr>   <chr>  <chr>          <chr>     
+ 1 0        12      NA       NA       NA      Male   Bachelor       NA        
+ 2 30       0       No       No       No      Male   High school    No        
+ 3 NA       NA      No       No       No      Male   Bachelor       No        
+ 4 10       0       NA       NA       NA      Female High school    NA        
+ 5 NA       NA      Yes      Yes      No      Female Graduate       Yes       
+ 6 0        2       No       Yes      No      Female Junior college Yes       
+ 7 0        40      NA       NA       NA      Male   High school    NA        
+ 8 NA       NA      Yes      Yes      No      Female High school    Yes       
+ 9 0        0       NA       NA       NA      Male   High school    NA        
+10 NA       NA      No       No       No      Male   Junior college No        
+# … with 2,857 more rows
 
 2. We calculate the proportion of Yes’s for `snap_insta` among those who answered the question, i.e. excluding NAs.
 
@@ -38,6 +51,11 @@ prop_yes_gss <-  gss %>%
                         
 prop_yes_gss
 ```
+
+The proportion of Yes, meaning the people who were using either Instagram or Snapchat, among those who answered the question is 37.5%. 
+
+I think today, in 2020, the proportion would be surely higher. While Snapchat is no longer very popular especially in Europe, almost everyone has Instagram. 
+
 
 3. Using the CI formula for proportions, we construct 95% CIs for men and women who used either Snapchat or Instagram
 
@@ -88,3 +106,9 @@ paste("CI 95% women:", "[", lower_CI_women, "-", upper_CI_women, "]")
 paste("Proportion of men using either Snapchat or Instagram:", prop_yes_gss_men)
 paste("CI 95% men:", "[", lower_CI_men, "-", upper_CI_men, "]")
 ```
+The proportion of women using either Snapchat or Instagram is around 42%, while the CI of 95% for women is: [ 38.3% - 45.4% ]
+The proportion of men using either Snapchat or Instagram is instead around 32% and the CI of 95% for men is: [ 28.1% - 35.6% ]
+
+I expected the proportion of women using either Snapchat or Instagram being higher than the proportion of men since Instagram in particular is a magnet for fashion, design, and beauty brands - companies are often trying to target more women than men to buy their products and clothes. 
+
+Moreover, the main social function is to share photos, and on Instagram some women think to have the power to modify their appearance and put a lot of effort on their profile. What is also interesting to notice is that usually the average number of likes on women’s posts is higher than the number of likes on posts published by men. Indeed, men are ten times more likely to like and comment posts, thus they are still active member on the social media. 
