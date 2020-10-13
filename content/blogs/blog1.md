@@ -23,21 +23,7 @@ Can we estimate the *population* proportion of Snapchat or Instagram users in 20
 gss <- gss %>% 
   mutate(snap_insta= ifelse(snapchat=="Yes" | instagrm =="Yes", "Yes", ifelse(snapchat== "NA" & instagrm== "NA", "NA", "No")))
 
-gss
 ```
-   emailmin emailhr snapchat instagrm twitter sex    degree         snap_insta
-   <chr>    <chr>   <chr>    <chr>    <chr>   <chr>  <chr>          <chr>     
- 1 0        12      NA       NA       NA      Male   Bachelor       NA        
- 2 30       0       No       No       No      Male   High school    No        
- 3 NA       NA      No       No       No      Male   Bachelor       No        
- 4 10       0       NA       NA       NA      Female High school    NA        
- 5 NA       NA      Yes      Yes      No      Female Graduate       Yes       
- 6 0        2       No       Yes      No      Female Junior college Yes       
- 7 0        40      NA       NA       NA      Male   High school    NA        
- 8 NA       NA      Yes      Yes      No      Female High school    Yes       
- 9 0        0       NA       NA       NA      Male   High school    NA        
-10 NA       NA      No       No       No      Male   Junior college No        
-# … with 2,857 more rows
 
 2. We calculate the proportion of Yes’s for `snap_insta` among those who answered the question, i.e. excluding NAs.
 
