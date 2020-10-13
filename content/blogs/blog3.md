@@ -10,13 +10,12 @@ keywords: ""
 slug: blog3
 title: Travel lover
 ---
-*Twenty years from now you will be more disappointed by the things you didn’t do than by the ones you did. So throw off the bowlines, Sail away from the safe harbor. Catch the trade winds in your sails.  Explore. Dream. Discover* Mark Twain
+*"Twenty years from now you will be more disappointed by the things you didn’t do than by the ones you did. So throw off the bowlines, Sail away from the safe harbor. Catch the trade winds in your sails.  Explore. Dream. Discover"* - Mark Twain
 
+I love traveling. From my point of view, there is nothing like traveling, seeing a new place for the first time or returning to a favorite one. Traveling is a big deal: going out and exploring the unknown is a life-changing experience as you get to try new things, discover new places and connect with different people.
+It is extremely eye-opening. I love to watch how people live in other countries, what their traditions are and learn about new cultures. It might give you a new perspective on life and make you (more) humble of the life you have and appreciate it. Indeed, sometimes people complain about their daily life, and lose sight of what they have. I think that there really isn’t a place like home and you’ll discover that only when you’re traveling to new places. The simple things you always took for granted don’t seem to be as simple as you thought. 
 
-From my point of view, there is nothing like traveling, seeing a new place for the first time or returning to a favorite one. Traveling is a big deal. Going out and exploring the unknown is a life-changing experience. You get to try new things, discover new places, connect with different people and, most importantly, you can have a deeper understanding of you are as a couple. There will be certain situations which can push you to the limit. It’s soothing to know that you can hold somebody’s hand when you need it.
+Traveling is also a way to connect with your friends and family if they are traveling with you. I have made some awesome memories with my family and friends, that I will never forget. 
+A shared experience will also bring people closer together and it doesn’t matter if you are travelling with your close family, your boyfriend or girlfriend, your best friend or your group of friends - it will deepen your relationship.
 
-YOU GAIN KNOWLEDGE
-One of the most generous compensations of traveling is that you get to know and understand so many new things. You’ll get to know places and people that maybe you have disregarded before. The world is monumental, and we are just a small part of it. This is the first lesson you learn when you make traveling a habit. Getting this fresh perspective will then change your entire vision on what is really important. You will learn to truly value simple things like drinking bottled water or having an Internet connection.
-
-
-The idea is to breathe knowledge and be open minded. It is the only way traveling can get you wiser. It is the only way you can get to tell your grandchildren really amazing stories.
+Finally, traveling gets you out of your comfort zone. You have to adapt to the lifestyle of the destination and be open minded. It is the only way traveling can get you wiser. 
