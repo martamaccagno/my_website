@@ -11,110 +11,69 @@ slug: blog5
 title: Instagram and Snapchat usage
 ---
 
-```{r, setup, include=FALSE}
-knitr::opts_chunk$set(
-  message = FALSE, 
-  warning = FALSE, 
-  tidy=FALSE,     # display code as typed
-  size="small")   # slightly smaller font for code
-options(digits = 3)
+# Task 2: `gapminder` country comparison
 
-# default figure size
-knitr::opts_chunk$set(
-  fig.width=6.75, 
-  fig.height=6.75,
-  fig.align = "center"
-)
-```
-
-# Challenge 1: CDC COVID-19 Public Use Data
-
-Let us revisit the [CDC Covid-19 Case Surveillance Data](https://data.cdc.gov/Case-Surveillance/COVID-19-Case-Surveillance-Public-Use-Data/vbim-akqf). There are well over 3 million entries of individual, de-identified patient data. Since this is a large file, I suggest you use `vroom` to load it and you keep `cache=TRUE` in the chunk options.
-
-
-```{r, cache=TRUE}
-# file contains 11 variables and 3.66m rows and is well over 380Mb. 
-# It will take time to download
-
-# URL link to CDC to download data
-url <- "https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD"
-
-covid_data <- vroom::vroom(url)%>% 
-  clean_names()
-
-
-```
-
-
-Covid_19 death rate (%) by age group, sex, and whether the patient had co-morbidities or not:
-
-```{r covid_challenge1.1, out.width="100%"}
-
-  #Removing useless variables
-removed_val=c("Missing", "Unknown", "Other", NA)
-
-
-death_rate_condition <- covid_data %>%
-select(medcond_yn, death_yn, sex, age_group) %>% 
-  #Removing the variables linked to "missing", "unknown", "Other"   and    NA
-filter(!(death_yn %in% removed_val) ,
-      !(medcond_yn %in% removed_val), 
-      !(sex %in% removed_val),
-      !(age_group %in% removed_val),)  %>%
-mutate(death = ifelse(death_yn == "Yes", 1, 0), co_mor=
-ifelse(medcond_yn == "Yes", "With Comorbidities", "Without
-Comorbidities")) %>% group_by(age_group, sex, co_mor) %>%
-summarize(death_rate = prop(death))
-
-ggplot(death_rate_condition, aes(x=death_rate, y=age_group)) +
-geom_col(fill="#000099", alpha=0.8) + facet_grid(rows=vars(co_mor),cols
-= vars (sex)) +
-  #Scales function seemed to be masked
-scale_x_continuous(labels = scales::percent) +  theme_bw()+
-geom_text(aes(label=round(death_rate*100, 2)),
-position=position_dodge(width=0.8), hjust=-0.06, size=1.8) + 
-labs (title = "Covid death % by age group, sex and presence of co-morbidities", caption="Source: CDC", x= "", y= "") + theme(text=element_text(size=5), axis.text.y = element_text(size = 4))
-      
-
-```
-
-Covid_19 death rate (%) by age group, sex, and whether the patient was admited 
-to Intensive Care Unit (ICU) or not:
-
-```{r covid_challenge1.2, out.width="100%" }
-
-  #Removing useless variables
-removed_val=c("Missing", "Unknown", "Other", NA)
-
-death_rate_icu <- covid_data %>%
-select(icu_yn, death_yn, sex, age_group) %>% 
-  #Removing the variables linked to "missing", "unknown", "Other"   and    NA 
-filter(!(death_yn %in% removed_val) ,
-      !(icu_yn %in% removed_val), 
-      !(sex %in% removed_val),
-      !(age_group %in% removed_val),)  %>%
-mutate(death = ifelse(death_yn == "Yes", 1, 0), 
-icu= ifelse(icu_yn == "Yes", "Admitted to ICU", "No ICU")) %>%
-group_by(age_group, sex, icu) %>% 
-summarize(death_rate = prop(death))
-  
-ggplot(death_rate_icu, aes(x=death_rate, y=age_group)) +  geom_col(fill="#FF0000", alpha=0.8) + 
-facet_grid(rows=vars(icu), cols = vars (sex)) +
-  #Scales function seemed to be masked
-scale_x_continuous(labels = scales::percent) +  theme_bw()+
-geom_text(aes(label=round(death_rate*100, 2)),position=position_dodge(width=0.8), hjust=-0.06, size=1.8) + 
-labs (title = "Covid death % by age group, sex and and whether patient was admitted to ICU", caption="Source: CDC", x= "", y= "") +
-theme(text=element_text(size=5), axis.text.y = element_text(size = 4))
-   
-    
-```
-
+You have seen the `gapminder` dataset that has data on life expectancy, population, and GDP per capita for 142 countries from 1952 to 2007. To get a glipmse of the dataframe, namely to see the variable names, variable types, etc., we use the `glimpse` function. We also want to have a look at the first 20 rows of data.
 
 ```{r}
+glimpse(gapminder)
 
-# Example graphs from Kostis
-knitr::include_graphics(here::here("images", "covid_death_rate_comorbidities.png"), error = FALSE)
-knitr::include_graphics(here::here("images", "covid_death_rate_icu.png"), error = FALSE)
+head(gapminder, 20) # look at the first 20 rows of the dataframe
 
 ```
+
+Your task is to produce two graphs of how life expectancy has changed over the years for the `country` and the `continent` you come from. 
+
+I have created the `country_data` and `continent_data` with the code below. 
+
+```{r}
+country_data <- gapminder %>% 
+            filter(country == "Italy")
+
+continent_data <- gapminder %>% 
+            filter(continent == "Europe")
 ```
+
+First, create a plot of life expectancy over time for the single country you chose. You should use  `geom_point()` to see the actual data points and `geom_smooth(se = FALSE)`  to plot the underlying trendlines. You need to remove the comments **#** from the lines below for your code to run.
+
+```{r, lifeExp_one_country}
+plot1 <- ggplot(country_data, aes(x = year, y = lifeExp))+ geom_point() +
+  geom_smooth(se = FALSE) + NULL 
+
+plot1
+```
+
+Next we need to add a title. Create a new plot, or extend plot1, using the `labs()` function to add an informative title to the plot.
+
+```{r, lifeExp_one_country_with_label}
+plot1 <- ggplot (country_data, aes(x = year, y = lifeExp))+ geom_point() +
+  geom_smooth(se = FALSE) + labs(title = "Life expectancy in Ialy over time", x= "Year",y = "Age") + NULL
+
+print(plot1)
+```
+
+
+Secondly, produce a plot for all countries in the *continent* you come from. (Hint: map the `country` variable to the colour aesthetic).  
+
+```{r lifeExp_one_continent}
+ggplot(continent_data, aes(x = year, y = lifeExp, colour = country))+
+  geom_point() + geom_smooth(se = FALSE) + NULL
+```
+
+Finally, using the original `gapminder` data, produce a life expectancy over time graph, grouped (or faceted) by continent. We will remove all legends, adding the `theme(legend.position="none")` in the end of our ggplot.
+
+```{r lifeExp_facet_by_continent}
+ggplot(data = gapminder , aes(x = year , y = lifeExp, colour = continent ))+
+  geom_point() + geom_smooth(se = FALSE) + facet_wrap(~continent) +
+  theme(legend.position="none") + labs(title = "Life expectancy over time", x = "Year", y =  "Age") +
+  NULL 
+```
+
+Given these trends, what can you say about life expectancy since 1952? Again, don't just say what's happening in the graph. Tell some sort of story and speculate about the differences in the patterns.
+
+> Type your answer after this blockquote.
+
+Overall life expectancy has risen significantly across all five continents since 1952. 
+The steepest improvement can be seen in Asia, and it is probably correlated with the economic development of the continent. In Africa it seems that the rate of increase in life expectancy is slowing down after approximately the year 1990 and this could be due to geopolitical crises.
+
+The trend in the Americas seems to be pretty linear while the rate of increase in life expectancy in Europe and Oceania has increased over the last years as the curve appears to have become steeper over the last decades in those continents. These two countries have indeed highly developed economies and very good healthcare systems. Moreover, there have been no major conflicts over the last decades impacting the life expectancy of the countries in Europe and Oceania.
