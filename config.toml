@@ -116,11 +116,11 @@ disqusShortname = ""
       image = "DSC02474.jpeg"
       url = "blogs/blog4"
 
-     [[params.tiles.showcase]]
-      title = "Ski lover"
-      subtitle = "Free and happy"
-      image = "IMG_0383.jpg"
-      url = "blogs/blog5"
+    # [[params.tiles.showcase]]
+    #  title = "Ski lover"
+    #  subtitle = "Free and happy"
+    #  image = "IMG_0383.jpg"
+     # url = "blogs/blog5"
     
   #  [[params.tiles.showcase]]
   #    title = "Happy"
