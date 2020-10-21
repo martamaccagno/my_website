@@ -142,8 +142,8 @@ disqusShortname = ""
     enable = true
     title = "Your life is in your hands"
     subtitle = "Be happy with what you have. Be excited about what you want."
-    buttonText = "Get Started"
-    url = "blogs"
+   # buttonText = "Get Started"
+   # url = "blogs"
 
 
   # Contact section
